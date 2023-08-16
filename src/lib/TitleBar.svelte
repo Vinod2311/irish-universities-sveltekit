@@ -17,7 +17,7 @@
 		{#if $user.email}
 			<div class="is-size-7">{$user.email}</div>
 		{:else}
-			<div class="is-size-7">Irish Universities - sveltekit 0.1.0</div>
+			<div class="is-size-7">Irish Universities - sveltekit 1.0.1</div>
 		{/if}
 	</div>
 </div>

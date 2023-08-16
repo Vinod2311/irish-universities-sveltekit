@@ -10,7 +10,7 @@
 		zoom: 7,
 		minZoom: 1
 	};
-
+/*
   function addUniversityMarker(map, university){
     const universityStr = `${university.name}: ${university.description}`;
     map.addMarker({ lat: university.lat, lng: university.lng}, universityStr, "Universities");
@@ -21,16 +21,20 @@
       addUniversityMarker(map, university);
     }
   })
-
+*/
 	onMount(async () => {
 		const map = new LeafletMap("donation-map", mapConfig);
     map.showZoomControl();
-    map.addLayerGroup('Universities')
+    const countiesList = await universityService.getAllCounties();
+    for (let i=0; i< countiesList.length; i++){
+      map.addLayerGroup(`${countiesList[i].name}`);
+      let countyPicked = await universityService.getCounty(countiesList[i]._id);
+      for (let i=0; i<countyPicked.universities.length; i++) {
+        const universityStr = `${countyPicked.universities[i].name}: ${countyPicked.universities[i].description}`;
+        map.addMarker({ lat: countyPicked.universities[i].lat, lng: countyPicked.universities[i].lng}, universityStr, `${countyPicked.name}`);
+      }
+    };
     map.showLayerControl();
-    const universities = await universityService.getAllUniversities();
-    universities.forEach((university) => {
-      addUniversityMarker(map, university);
-    });
 	});
 </script>
 

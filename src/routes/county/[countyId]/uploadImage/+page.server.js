@@ -1,5 +1,5 @@
 
-import { goto } from "$app/navigation";
+import { redirect } from "@sveltejs/kit";
 import { universityService } from "../../../../services/university-service";
 export const ssr=false;
 
@@ -8,8 +8,8 @@ export const actions = {
   default: async ({request,params}) => {
     const data = await request.formData();
     const countyId = await params.countyId;
-    universityService.uploadImage(data,countyId);
-    // goto("/dashboard")
+    await universityService.uploadImage(data,countyId);
+    throw redirect(303,`/county/${params.countyId}`);
   }
 }
 
