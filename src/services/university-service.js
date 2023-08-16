@@ -39,6 +39,15 @@ export const universityService = {
     }
   },
 
+  async editUserDetails(userDetails, userId) {
+    try {
+      const response = await axios.post(`${this.baseUrl}/api/users/${userId}/editUserDetails`,userDetails);
+      return true;
+    } catch (error) {
+      return [];
+    }
+  },
+
   async getCounty(id) {
     const res = await axios.get(`${this.baseUrl}/api/counties/${id}`);
     return res.data;
