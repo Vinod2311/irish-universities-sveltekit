@@ -1,14 +1,11 @@
 <script>
-  import { CldImage } from 'svelte-cloudinary'; 
+// @ts-nocheck
   import { universityService } from '../services/university-service';
-  import { goto } from '$app/navigation';
-
-  // export const csr = false;
+  
   export let data;
   
 
   let errorMessage = "";
-  
   
   async function deleteImage(countyId) {
     console.log(`attemting to delete image with county id: ${countyId}`);
@@ -20,27 +17,23 @@
 		}
   };
   
-
-  
-
-  
-
-
 </script>
 
 <div class="card">
+  {#if data.county.img}
   <div class="card-image"> 
       <figure class="image is-256x256">
-        <img src={data.county.img}>
+        <!-- svelte-ignore a11y-img-redundant-alt -->
+        <img src={data.county.img} alt="picture of spire">
       </figure>
-      {#if data.county.img}
         <button on:click|preventDefault={() => deleteImage(data.county._id)}>
           <span class="icon is-medium">
             <i class="fas fa-trash"></i>
           </span>
         </button>
-      {/if}
+      
   </div>
+  {/if}
 
   <div class="card-content">
     <form action="/county/{data.county._id}/uploadImage" method="POST"  enctype="multipart/form-data" id="uploadImage">
