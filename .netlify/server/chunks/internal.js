@@ -104,7 +104,7 @@ const options = {
   root: Root,
   service_worker: false,
   templates: {
-    app: ({ head, body, assets: assets2, nonce, env }) => '<!DOCTYPE html>\n<html lang="en">\n\n<head>\n	<meta charset="utf-8" />\n	<link rel="icon" href="' + assets2 + '/favicon.png" />\n	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">\n  <script src="https://kit.fontawesome.com/a4a7e5df82.js" crossorigin="anonymous"><\/script>\n	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel="stylesheet" type="text/css" />\n  <link rel="stylesheet" href="/leaflet.css">\n	<meta name="viewport" content="width=device-width" />\n	' + head + '\n\n  <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"><\/script>\n</head>\n\n<body data-sveltekit-preload-data="hover">\n	<div style="display: contents">' + body + "</div>\n</body>\n\n</html>",
+    app: ({ head, body, assets: assets2, nonce, env }) => '<!DOCTYPE html>\n<html lang="en">\n\n<head>\n	<meta charset="utf-8" />\n	<link rel="icon" href="' + assets2 + '/favicon.png" />\n	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">\n  <script src="https://kit.fontawesome.com/a4a7e5df82.js" crossorigin="anonymous"><\/script>\n	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel="stylesheet" type="text/css" />\n   <link rel="stylesheet" href="/dist/leaflet.css"> \n	<meta name="viewport" content="width=device-width" />\n	' + head + '\n\n  <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"><\/script>\n</head>\n\n<body data-sveltekit-preload-data="hover">\n	<div style="display: contents">' + body + "</div>\n</body>\n\n</html>",
     error: ({ status, message }) => '<!DOCTYPE html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<title>' + message + `</title>
 
 		<style>
@@ -166,7 +166,7 @@ const options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "1jfb4vq"
+  version_hash: "wy4bek"
 };
 function get_hooks() {
   return {};
