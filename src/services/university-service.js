@@ -4,7 +4,7 @@ import axios from "axios";
 import { latestUniversity, user } from "../store";
 
 export const universityService = {
-	baseUrl: "http://localhost:3000",
+	baseUrl: "https://irish-universities.onrender.com",
   
 
 	async login(email, password) {

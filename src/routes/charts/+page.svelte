@@ -7,8 +7,6 @@
   import { user } from "../../store";
 
 
-  //export let data;
-
   onMount( async () => {
     let countyPicked;
     let universityCount = 0;

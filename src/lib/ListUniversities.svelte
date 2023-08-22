@@ -9,7 +9,7 @@
   let errorMessage="";
   
 
-  async function deleteUniversity( id) {
+  async function deleteUniversity(id) {
     console.log(`attemting to delete university with id: ${id}`);
 		let success = await universityService.deleteUniversity(id);
 		if (success) {
@@ -33,7 +33,6 @@
     </tr>
   </thead>
   <tbody>
-    
     {#each data.county.universities as university}
       <tr>
         <td>
@@ -57,7 +56,6 @@
         </td>
       </tr>
     {/each}
-  
   </tbody>
 </table>
 

@@ -34,8 +34,9 @@
 
 <form on:submit|preventDefault={addCounty}>
   <div class="field">
-    <label class="label">County Name</label> 
+    <label >County Name
     <input bind:value={county.name} class="input" type="text" placeholder="Enter County Name" name="name">
+    </label>
   </div>
   <button class="button is-link">Add County</button>
   <div class="box">

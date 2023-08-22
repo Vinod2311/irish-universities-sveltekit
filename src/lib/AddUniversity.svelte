@@ -8,15 +8,12 @@
   let message = "";
 
   let university = {};
-  let county = null;
+
   university.name = "";
   university.lat = 53.365276;
   university.lng = -7.798909;
   university.description = "";
-  let loggedInUser = null;
-
   
-
   async function addUniversity() {
     if (university.name) {
       const newUniversity = {
@@ -42,7 +39,7 @@
 
 
 <form class="box" on:submit|preventDefault={addUniversity}>
-  <label>Enter University Details</label>
+  <label>Enter University Details
   <div class="field is-horizontal">
     <div class="field-body">
       <div class="field">
@@ -59,6 +56,7 @@
       </div>
     </div>
   </div>
+  </label>
   <button class="button is-link">Add university</button>
   <div class="box">
     {message}

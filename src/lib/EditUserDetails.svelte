@@ -36,18 +36,20 @@
       <h1 class="title">Edit Your Details</h1>
       <form on:submit|preventDefault={editUserDetails}>
               <div class="field">
-                  <label class="label">First Name</label>
-                  <input bind:value={firstName} class="input" placeholder="First Name" type="text" name="firstName">
+                  <label class="label">First Name
+                    <input bind:value={firstName} class="input" placeholder="First Name" type="text" name="firstName">
+                  </label>
               </div>
               <div class="field">
-                  <label class="label">Last Name</label>
-                  <input bind:value={lastName} class="input" placeholder="Last Name" type="text" name="lastName" >
+                  <label class="label">Last Name
+                    <input bind:value={lastName} class="input" placeholder="Last Name" type="text" name="lastName" >
+                  </label>
               </div>
               <div class="field">
-                  <label class="label">Email</label>
-                  <input bind:value={email} class="input" placeholder="Email" type="text" name="email" >
+                  <label class="label">Email
+                    <input bind:value={email} class="input" placeholder="Email" type="text" name="email" >
+                  </label>
               </div>
-
           <button class="button is-link">Update user details</button>
       </form>
   </section>
