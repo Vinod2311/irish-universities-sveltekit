@@ -1,8 +1,8 @@
 <script>
 // @ts-nocheck
   import { universityService } from '../services/university-service';
-  
-  export let data;
+  import { countyStore } from '../store';
+  //export let data;
   
 
   let errorMessage = "";
@@ -20,13 +20,13 @@
 </script>
 
 <div class="card">
-  {#if data.county.img}
+  {#if $countyStore.img}
   <div class="card-image"> 
       <figure class="image is-256x256">
         <!-- svelte-ignore a11y-img-redundant-alt -->
-        <img src={data.county.img} alt="picture of spire">
+        <img src={$countyStore.img} alt="picture of spire">
       </figure>
-        <button on:click|preventDefault={() => deleteImage(data.county._id)}>
+        <button on:click|preventDefault={() => deleteImage($countyStore._id)}>
           <span class="icon is-medium">
             <i class="fas fa-trash"></i>
           </span>
@@ -36,7 +36,7 @@
   {/if}
 
   <div class="card-content">
-    <form action="/county/{data.county._id}/uploadImage" method="POST"  enctype="multipart/form-data" id="uploadImage">
+    <form action="/county/{$countyStore._id}/uploadImage" method="POST"  enctype="multipart/form-data" id="uploadImage">
       <div id="file-select" class="file has-name is-fullwidth">
         <label class="file-label"> <input class="file-input" name="imagefile" type="file" accept="image/png, image/jpeg">
           <span class="file-cta">

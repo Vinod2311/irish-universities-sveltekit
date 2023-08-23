@@ -1,19 +1,24 @@
 <script>
 	import { onMount } from "svelte";
 	import { universityService } from "../services/university-service";
-  import {user} from "../store";
+  import {user,countiesListStore} from "../store";
   import { goto } from "$app/navigation";
 
-  export let data;
-	
+	//export let data;
   let errorMessage="";
+  //let countiesList = $countiesListStore
 
+  //console.log(countiesList);
 
   async function deleteCounty(id) {
     console.log(`attemting to delete county with id: ${id}`);
 		let success = await universityService.deleteCounty(id);
 		if (success) {
-			location.reload();
+      const index = $countiesListStore.findIndex( object => {
+        return object._id === id
+      })
+			$countiesListStore.splice(index,1);
+      $countiesListStore =$countiesListStore;
 		} else {
 			errorMessage = "Unsuccessful deletion";
 		}
@@ -22,7 +27,7 @@
 </script>
 
 
-{#each data.countiesList as county}
+{#each $countiesListStore as county}
   <div class="box box-link-hover-shadow">
     <h2 class="title">
       {county.name}

@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { universityService } from "../services/university-service";
-  import { user } from "../store";
+  import { user, countiesListStore } from "../store";
 
   let message = "";
 
@@ -15,12 +15,16 @@
 
   async function addCounty() {
     if (county.name) {
-      const success = await universityService.createCounty(county,loggedInUser._id);
-      if (!success) {
+      const addedCounty = await universityService.createCounty(county,loggedInUser._id);
+      //$countiesListStore[$countiesListStore.length] = addedCounty;
+      $countiesListStore.push(addedCounty);
+      $countiesListStore = $countiesListStore;
+      console.log($countiesListStore);
+      if (!addedCounty) {
 				message = "Addition of county not completed - some error occurred";
 				return;
 			}
-      location.reload();
+      // location.reload();
       message= `You added ${county.name}.`;
       
 

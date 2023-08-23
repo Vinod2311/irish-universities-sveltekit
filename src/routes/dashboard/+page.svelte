@@ -3,9 +3,9 @@
   import Header from "$lib/Header.svelte";
   import ListCounties from "$lib/ListCounties.svelte";
   import AddCounty from "$lib/AddCounty.svelte";
-  import { user } from "../../store";
+  import { user,countiesListStore } from "../../store";
 	import { universityService } from "../../services/university-service";
-  export let data;
+  //export let data;
   
 </script>
 
@@ -22,6 +22,6 @@
 </div>
 
 <section class="section">
-  <ListCounties data={data}/>
+  <ListCounties />
   <AddCounty />
 </section>
