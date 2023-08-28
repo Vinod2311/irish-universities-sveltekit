@@ -9,3 +9,7 @@ export const user = writable({
 
 
 export const latestUniversity = writable(null);
+
+export const countiesListStore = writable(null);
+
+export const countyStore = writable(null);

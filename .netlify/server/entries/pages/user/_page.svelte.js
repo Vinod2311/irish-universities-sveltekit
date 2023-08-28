@@ -1,5 +1,5 @@
 import { c as create_ssr_component, a as add_attribute, v as validate_component, e as escape } from "../../../chunks/ssr.js";
-import { a as subscribe } from "../../../chunks/utils.js";
+import { s as subscribe } from "../../../chunks/utils.js";
 import { u as user } from "../../../chunks/store.js";
 import { H as Header } from "../../../chunks/Header.js";
 import { M as MainNavigator } from "../../../chunks/MainNavigator.js";

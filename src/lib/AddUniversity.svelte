@@ -1,9 +1,9 @@
 <script>
  
   import { universityService } from "../services/university-service";
-  import { user} from "../store";
+  import { user,countyStore} from "../store";
 
-  export let data;
+  //export let data;
 
   let message = "";
 
@@ -13,7 +13,7 @@
   university.lat = 53.365276;
   university.lng = -7.798909;
   university.description = "";
-  
+
   async function addUniversity() {
     if (university.name) {
       const newUniversity = {
@@ -22,12 +22,13 @@
         lng: university.lng,
         description: university.description
       };
-      const success = await universityService.createUniversity(newUniversity, data.county._id);
+      const success = await universityService.createUniversity(newUniversity, $countyStore._id);
       if (!success) {
 				message = "Addition of university not completed - some error occurred";
 				return;
 			}
-      location.reload();
+      $countyStore.universities.push(success);
+      $countyStore = $countyStore;
       message= `You added ${newUniversity.name}.`;
 
     } else {

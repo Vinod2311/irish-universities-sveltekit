@@ -3,8 +3,9 @@
 	import { universityService } from "../services/university-service";
   import {user} from "../store";
   import { goto } from "$app/navigation";
+  import { countyStore } from "../store";
 
-  export let data;
+  //export let data;
 
   let errorMessage="";
   
@@ -13,7 +14,11 @@
     console.log(`attemting to delete university with id: ${id}`);
 		let success = await universityService.deleteUniversity(id);
 		if (success) {
-			location.reload();
+			const index = $countyStore.universities.findIndex( object => {
+        return object._id === id;
+      })
+			$countyStore.universities.splice(index,1);
+      $countyStore =$countyStore;
 		} else {
 			errorMessage = "Unsuccessful deletion";
 		}
@@ -33,7 +38,7 @@
     </tr>
   </thead>
   <tbody>
-    {#each data.county.universities as university}
+    {#each $countyStore.universities as university}
       <tr>
         <td>
           {university.name}

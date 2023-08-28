@@ -28,10 +28,10 @@ function get_store_value(store) {
   return value;
 }
 export {
-  subscribe as a,
+  safe_not_equal as a,
   blank_object as b,
   get_store_value as g,
   noop as n,
   run_all as r,
-  safe_not_equal as s
+  subscribe as s
 };
