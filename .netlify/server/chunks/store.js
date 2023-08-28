@@ -5,6 +5,10 @@ const user = writable({
   firstName: "",
   lastName: ""
 });
+const countiesListStore = writable(null);
+const countyStore = writable(null);
 export {
+  countiesListStore as a,
+  countyStore as c,
   user as u
 };

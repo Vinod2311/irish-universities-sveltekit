@@ -1,5 +1,5 @@
 import { c as create_ssr_component, e as escape, v as validate_component } from "./ssr.js";
-import { a as subscribe } from "./utils.js";
+import { s as subscribe } from "./utils.js";
 import { u as user } from "./store.js";
 const TitleBar = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let $user, $$unsubscribe_user;

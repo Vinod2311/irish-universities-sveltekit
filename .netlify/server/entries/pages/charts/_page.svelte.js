@@ -1,4 +1,4 @@
-import { a as subscribe } from "../../../chunks/utils.js";
+import { s as subscribe } from "../../../chunks/utils.js";
 import { c as create_ssr_component, o as onDestroy, a as add_attribute, v as validate_component } from "../../../chunks/ssr.js";
 import { H as Header } from "../../../chunks/Header.js";
 import { M as MainNavigator } from "../../../chunks/MainNavigator.js";
