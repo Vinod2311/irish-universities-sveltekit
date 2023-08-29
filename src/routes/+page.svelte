@@ -14,7 +14,9 @@
       console.log(loggedInUser);
       if (loggedInUser.email) {
         goto("/dashboard");
-      }
+      } else
+      universityService.logout()
+
     });
 </script>
 
