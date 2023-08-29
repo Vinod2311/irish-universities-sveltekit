@@ -4,14 +4,14 @@
   import { countyStore } from '../store';
   //export let data;
 
-  /*
+  
   async function fileInputChange() {
     const fileInput = document.querySelector(".file-input");
     if (fileInput.files.length > 0) {
       const fileName = document.querySelector(".file-name");
       fileName.textContent = fileInput.files[0].name;
     }
-  };*/
+  };
 
   let errorMessage = "";
   
@@ -46,7 +46,7 @@
   <div class="card-content">
     <form action="/county/{$countyStore._id}/uploadImage" method="POST"  enctype="multipart/form-data" id="uploadImage">
       <div id="file-select" class="file has-name is-fullwidth">
-        <label class="file-label"> <input class="file-input" name="imagefile" type="file" accept="image/png, image/jpeg">
+        <label class="file-label"> <input on:change={fileInputChange} class="file-input" name="imagefile" type="file" accept="image/png, image/jpeg">
           <span class="file-cta">
             <span class="file-icon">
               <i class="fas fa-upload"></i>
