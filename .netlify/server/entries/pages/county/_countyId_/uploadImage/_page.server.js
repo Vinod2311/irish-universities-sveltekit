@@ -1,4 +1,4 @@
-import "../../../../../chunks/index.js";
+import { r as redirect } from "../../../../../chunks/index.js";
 import { u as universityService } from "../../../../../chunks/university-service.js";
 let formData = null;
 const actions = {
@@ -10,6 +10,7 @@ const actions = {
     if (data) {
       formData = true;
     }
+    throw redirect(303, `/county/${params.countyId}`);
   }
 };
 async function load({ request, params }) {

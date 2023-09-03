@@ -15,7 +15,7 @@ export const actions = {
     if (data) {
       formData = true
     }
-    //throw redirect(303,`/county/${params.countyId}`);
+    throw redirect(303,`/county/${params.countyId}`);
   }
 }
 
