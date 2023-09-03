@@ -1,7 +1,7 @@
 
 import { redirect } from "@sveltejs/kit";
 import { universityService } from "../../../../services/university-service";
-export const ssr=false;
+// export const ssr=false;
 
 
 export const actions = {
