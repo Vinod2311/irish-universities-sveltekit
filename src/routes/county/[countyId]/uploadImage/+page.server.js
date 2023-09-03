@@ -14,3 +14,12 @@ export const actions = {
   }
 }
 
+export async function load({request,params})  {
+  //universityService.reload();
+  const countyId = await params.countyId;
+  //const formData = await request.formData();
+  //countyStore.set(county);
+  //console.log(get(countyStore));
+  return {countyId}
+}
+
