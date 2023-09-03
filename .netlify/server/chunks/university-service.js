@@ -1,8 +1,8 @@
 import axios from "axios";
 import { u as user } from "./store.js";
 const universityService = {
-  //baseUrl: "https://irish-universities.onrender.com",
-  baseUrl: "http://localhost:3000",
+  baseUrl: "https://irish-universities.onrender.com",
+  //baseUrl: "http://localhost:3000",
   async login(email, password) {
     try {
       const response = await axios.post(`${this.baseUrl}/api/users/authenticate`, { email, password });
